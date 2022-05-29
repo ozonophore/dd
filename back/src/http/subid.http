@@ -1,0 +1,18 @@
+# baseURL
+@baseURL = http://localhost:3000
+
+###
+# Create new data
+POST {{ baseURL }}/subids
+Content-Type: application/json
+
+[
+  "qwe",
+  "asd",
+  "qwer"
+]
+
+###
+# Find all data
+GET {{ baseURL }}/subids
+Content-Type: application/json
