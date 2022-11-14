@@ -27,6 +27,9 @@ jobs:
       - shell: bash
         run: |
           echo $TEST_VALUE > math-homework.txt
+      - shell: bash
+        run: |
+          chmod 777 math-homework.txt
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v1
         with:
@@ -34,7 +37,6 @@ jobs:
           path: math-homework.txt
   read:
     name: Display results
-    needs: print
     runs-on: ubuntu-latest
     steps:
       - name: Download math result for job 2
