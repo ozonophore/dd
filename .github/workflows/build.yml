@@ -46,6 +46,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: homework
+      - name: Give permission
+        run: chmod 777 math-homework.txt
       - name: Display structure of downloaded files
         run: ls -la
       - name: Print the final result
