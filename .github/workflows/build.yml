@@ -26,9 +26,23 @@ jobs:
         run: echo $TEST_VALUE
       - shell: bash
         run: |
-          expr 3 + 7 > math-homework.txt
+          $TEST_VALUE > math-homework.txt
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v1
         with:
           name: homework
           path: math-homework.txt
+  read:
+    name: Display results
+    needs: print
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download math result for job 2
+        uses: actions/download-artifact@v1
+        with:
+          name: homework
+      - name: Print the final result
+        shell: bash
+        run: |
+          value=cat homework/math-homework.txt
+          echo The result is $value
