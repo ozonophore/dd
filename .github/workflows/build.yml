@@ -26,7 +26,7 @@ jobs:
         run: echo $TEST_VALUE
       - shell: bash
         run: |
-          $TEST_VALUE > math-homework.txt
+          echo $TEST_VALUE > math-homework.txt
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v1
         with:
