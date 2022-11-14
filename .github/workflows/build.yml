@@ -24,3 +24,11 @@ jobs:
     steps:
       - name: Print test
         run: echo $TEST_VALUE
+      - shell: bash
+        run: |
+          expr 3 + 7 > math-homework.txt
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v1
+        with:
+          name: homework
+          path: math-homework.txt
