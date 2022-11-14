@@ -25,9 +25,11 @@ jobs:
       - name: Print test
         run: echo $TEST_VALUE
       - shell: bash
+        name: Create a file
         run: |
           echo $TEST_VALUE > math-homework.txt
       - shell: bash
+        name: Give permission
         run: |
           chmod 777 math-homework.txt
       - name: Upload math result for job 1
