@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Download math result for job 2
         uses: actions/download-artifact@v3
-        with:
-          name: homework
       - name: Give permission
         run: chmod 777 math-homework.txt
       - name: Display structure of downloaded files
