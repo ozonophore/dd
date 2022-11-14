@@ -44,14 +44,5 @@ jobs:
     steps:
       - name: Download math result for job 2
         uses: actions/download-artifact@v3
-        with:
-          name: homework
-      - name: Give permission
-        run: chmod 777 math-homework.txt
       - name: Display structure of downloaded files
         run: ls -la
-      - name: Print the final result
-        shell: bash
-        run: |
-          value=`cat math-homework.txt`
-          echo The result is $value
