@@ -18,7 +18,7 @@ jobs:
         id: version
         with:
           text: "$GITHUB_REF_NAME"
-          regex: '^v.*$'
+          regex: '^/v.*$'
           flags: gm
       - name: GitHub Tag Name example
         run: |
