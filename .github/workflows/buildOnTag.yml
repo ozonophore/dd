@@ -14,14 +14,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions-ecosystem/action-regex-match@v2
-        id: version
+      - uses: rishabhgupta/split-by@v1
+        id: split
         with:
-          text: "$GITHUB_REF_NAME"
-          regex: '^/v.*$'
-          flags: gm
+          string: $GITHUB_REF_NAME
+          split-by: 'v'
       - name: GitHub Tag Name example
         run: |
-            echo "Version: ${{ steps.version.outputs.match }}"
+            echo "Version: ${{ steps.split.outputs._1 }}"
+            echo "Version: ${{ steps.split.outputs._1 }}"
             echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
             echo "Tag name from github.ref_name: ${{  github.ref_name }}"
