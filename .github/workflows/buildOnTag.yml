@@ -17,8 +17,8 @@ jobs:
       - uses: actions-ecosystem/action-regex-match@v2
         id: version
         with:
-          text: TEXT
-          regex: '^.*$'
+          text: $GITHUB_REF_NAME
+          regex: '^v(.*)$'
           flags: gm
       - name: GitHub Tag Name example
         run: |
