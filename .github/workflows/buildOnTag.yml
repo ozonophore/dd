@@ -1,4 +1,4 @@
-name: TEST ACTION
+name: TEST TAG
 
 on:
   push:
