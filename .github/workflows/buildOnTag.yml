@@ -22,6 +22,6 @@ jobs:
           flags: gm
       - name: GitHub Tag Name example
         run: |
-            echo "Version: ${{ steps.version.outputs.match }}"
+            echo "Version: ${{ steps.version.outputs.group1 }}"
             echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
             echo "Tag name from github.ref_name: ${{  github.ref_name }}"
