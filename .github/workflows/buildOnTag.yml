@@ -17,11 +17,11 @@ jobs:
       - uses: actions-ecosystem/action-regex-match@v2
         id: version
         with:
-          text: "1234"
+          text: TEXT
           regex: '^.*$'
           flags: gm
       - name: GitHub Tag Name example
         run: |
-            echo "Version: ${{ steps.version.outputs.version }}"
+            echo "Version: ${{ steps.version.outputs.group1 }}"
             echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
             echo "Tag name from github.ref_name: ${{  github.ref_name }}"
