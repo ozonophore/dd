@@ -17,11 +17,11 @@ jobs:
       - uses: rishabhgupta/split-by@v1
         id: split
         with:
-          string: "$GITHUB_REF_NAME"
-          split-by: 'v'
+          string: $GITHUB_REF_NAME
+          split-by: ''
       - name: GitHub Tag Name example
         run: |
-            echo "Version: ${{ steps.split.outputs._1 }}"
+            echo "Version: ${{ steps.split.outputs._0 }}"
             echo "Version: ${{ steps.split.outputs._1 }}"
             echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
             echo "Tag name from github.ref_name: ${{  github.ref_name }}"
