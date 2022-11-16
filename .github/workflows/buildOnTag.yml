@@ -22,7 +22,7 @@ jobs:
           flags: gm
       - name: Set env
         run: |
-              echo BUILD_VERSION=${{ steps.version.outputs.group1 }}
+              echo BUILD_VERSION=$BUILD_VERSION
         env:
           BUILD_VERSION: ${{ steps.version.outputs.group1 }}
       - name: GitHub Tag Name example
