@@ -21,6 +21,8 @@ jobs:
           regex: '^v(.*)$'
           flags: gm
       - name: Set env
+        run: |
+              echo BUILD_VERSION=${{ steps.version.outputs.group1 }}
         env:
           BUILD_VERSION: ${{ steps.version.outputs.group1 }}
       - name: GitHub Tag Name example
