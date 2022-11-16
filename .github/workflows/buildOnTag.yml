@@ -20,8 +20,12 @@ jobs:
           text: ${{  github.ref_name }}
           regex: '^v(.*)$'
           flags: gm
+      - name: Set env
+        env:
+          BUILD_VERSION: ${{ steps.version.outputs.group1 }}
       - name: GitHub Tag Name example
         run: |
+            echo "Version frim env: $BUILD_VERSION"
             echo "Version: ${{ steps.version.outputs.match }}"
             echo "Version: ${{ steps.version.outputs.group1 }}"
             echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
