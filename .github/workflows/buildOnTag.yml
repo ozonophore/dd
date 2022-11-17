@@ -3,7 +3,13 @@ name: TEST TAG
 on:
   push:
     tags:
-      - 'v**'
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+  workflow_dispatch:
+    inputs:
+      BUILD_VERSION:
+        description: 'Build version'
+        default: '1.0-SNAPSHOT'
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
