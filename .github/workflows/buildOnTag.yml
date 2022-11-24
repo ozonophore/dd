@@ -21,7 +21,7 @@ jobs:
         name: Prepare a version from a tag
         with:
           text: ${{ github.event.client_payload.build_version }}
-          regex: '^v([0-9]+\.[0-9]+\.[0-9]+)$'
+          regex: '^v(.*)$'
           flags: gm
       - name: Print text
         run: |
