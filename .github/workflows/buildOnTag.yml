@@ -17,9 +17,10 @@ jobs:
     #if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Print text
         run: |
-            git branch"
+          git branch --contains v0.1.14"
   # This workflow contains a single job called "build"
 #  print:
 #    # The type of runner that the job will run on
