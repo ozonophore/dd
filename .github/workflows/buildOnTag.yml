@@ -13,28 +13,34 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   print:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions-ecosystem/action-regex-match@v2
-        id: version
-        with:
-          text: ${{  github.ref_name }}
-          regex: '^v(.*)$'
-          flags: gm
-      - name: Set env
+      - name: Print text
         run: |
-              echo BUILD_VERSION=$BUILD_VERSION
-        env:
-          BUILD_VERSION: ${{ steps.version.outputs.group1 }}
-      - name: GitHub Tag Name example
-        run: |
-            echo "Version frim env: $BUILD_VERSION"
-            echo "Version: ${{ steps.version.outputs.match }}"
-            echo "Version: ${{ steps.version.outputs.group1 }}"
-            echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
-            echo "Tag name from github.ref_name: ${{  github.ref_name }}"
+            echo "test text"
+  # This workflow contains a single job called "build"
+#  print:
+#    # The type of runner that the job will run on
+#    runs-on: ubuntu-latest
+#
+#    # Steps represent a sequence of tasks that will be executed as part of the job
+#    steps:
+#      - uses: actions-ecosystem/action-regex-match@v2
+#        id: version
+#        with:
+#          text: ${{  github.ref_name }}
+#          regex: '^v(.*)$'
+#          flags: gm
+#      - name: Set env
+#        run: |
+#              echo BUILD_VERSION=$BUILD_VERSION
+#        env:
+#          BUILD_VERSION: ${{ steps.version.outputs.group1 }}
+#      - name: GitHub Tag Name example
+#        run: |
+#            echo "Version frim env: $BUILD_VERSION"
+#            echo "Version: ${{ steps.version.outputs.match }}"
+#            echo "Version: ${{ steps.version.outputs.group1 }}"
+#            echo "Tag name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
+#            echo "Tag name from github.ref_name: ${{  github.ref_name }}"
