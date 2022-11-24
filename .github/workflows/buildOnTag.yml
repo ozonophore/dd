@@ -25,7 +25,7 @@ jobs:
           flags: gm
       - name: Print text
         run: |
-          echo "GROUP: ${{ steps.version.outputs.group1 }}"
+          echo "SOURCE: ${{ github.event.client_payload.build_version }} GROUP: ${{ steps.version.outputs.group1 }}"
       - name: Try to fail
         if: ${{ steps.version.outputs.group1 == '' }}
         run: exit 1
