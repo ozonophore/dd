@@ -19,9 +19,10 @@ jobs:
           echo "EVENT: ${{ github.event.client_payload.message }}"
       - uses: actions-ecosystem/action-regex-match@v2
         name: Prepare a version from a tag
+        id: version
         with:
           text: ${{ github.event.client_payload.build_version }}
-          regex: '^v(.*)$'
+          regex: '^v([0-9]+\.[0-9]+\.[0-9]+)$'
           flags: gm
       - name: Print text
         run: |
