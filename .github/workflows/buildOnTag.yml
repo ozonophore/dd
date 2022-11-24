@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Print text
         run: |
-            echo "Branch: ${BRANCH_NAME}"
+            echo "test text ${{ github.head_ref }} - ${{ github.ref }} - ${{ github.base_ref }}"
   # This workflow contains a single job called "build"
 #  print:
 #    # The type of runner that the job will run on
