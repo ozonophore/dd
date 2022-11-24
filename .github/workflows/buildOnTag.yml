@@ -14,12 +14,12 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   print:
-    if: ${{ github.ref == 'refs/heads/master' }}
+    #if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
     steps:
       - name: Print text
         run: |
-            echo "test text"
+            echo "test text ${{ github.ref }}"
   # This workflow contains a single job called "build"
 #  print:
 #    # The type of runner that the job will run on
