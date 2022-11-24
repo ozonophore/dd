@@ -23,6 +23,9 @@ jobs:
           text: ${{ github.event.client_payload.build_version }}
           regex: '^v([0-9]+\.[0-9]+\.[0-9]+)$'
           flags: gm
+      - name: Print text
+        run: |
+          echo "GROUP: ${{ teps.version.outputs.group1 }}"
       - name: Try to fail
         if: ${{ steps.version.outputs.group1 == '' }}
         run: exit 1
