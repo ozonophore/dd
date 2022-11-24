@@ -18,14 +18,13 @@ jobs:
         run: |
           echo "EVENT: ${{ github.event.client_payload.message }}"
       - uses: actions-ecosystem/action-regex-match@v2
-        id: ${{ steps.version.outputs.group1 == '' }}
         name: Prepare a version from a tag
         with:
           text: ${{ github.event.client_payload.build_version }}
           regex: '^v([0-9]+\.[0-9]+\.[0-9]+)$'
           flags: gm
       - name: Try to fail
-        if
+        if: ${{ steps.version.outputs.group1 == '' }}
         run: exit 1
   # This workflow contains a single job called "build"
 #  print:
