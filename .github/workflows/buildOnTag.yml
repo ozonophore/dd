@@ -15,7 +15,6 @@ on:
 jobs:
   print:
     #if: ${{ github.ref == 'refs/heads/master' }}
-    needs: on-main-branch-check
     runs-on: ubuntu-latest
     steps:
       - name: Print text
