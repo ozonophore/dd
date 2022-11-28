@@ -33,6 +33,16 @@ jobs:
           echo "MAJOR: ${{ steps.version.outputs.group1 }}"
           echo "MINOR: ${{ steps.version.outputs.group2 }}"
           echo "PATCH: ${{ steps.version.outputs.group3 }}"
+      - if: ${{ steps.version.outputs.group1 == ''}}
+        run: echo "BUILD_VERSION=v2.0.0" >> $GITHUB_ENV
+      - if: ${{ steps.version.outputs.group2 == ''}}
+        run: echo "BUILD_VERSION=v${{ steps.version.outputs.group1 }}.0.0" >> $GITHUB_ENV
+      - if: ${{ steps.version.outputs.group3 == ''}}
+        run: echo "BUILD_VERSION=v${{ steps.version.outputs.group1 }}.${{ steps.version.outputs.group2 }}.0" >> $GITHUB_ENV
+      - if: ${{ steps.version.outputs.group3 != ''}}
+        run: echo "BUILD_VERSION=v${{ steps.version.outputs.group1 }}.${{ steps.version.outputs.group2 }}.${{ steps.version.outputs.group3 + 1 }}" >> $GITHUB_ENV
+      - run: |
+          echo "BUILD_VERSION: ${{ env.BUILD_VERSION }}"
       - name: Download math result for job 2
         uses: actions/download-artifact@v3
       - name: Give permission
