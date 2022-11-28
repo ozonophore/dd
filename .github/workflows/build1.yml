@@ -27,11 +27,17 @@ jobs:
         uses: booxmedialtd/ws-action-parse-semver@v1
         with:
           input_string: '${{ steps.tag_version.outputs.tag }}'
-      - name: Use parsed semver
-        run: |
-            echo "v${{ steps.semver_parser.outputs.major }}"
-            echo "v${{ steps.semver_parser.outputs.minor }}"
-            echo "v${{ steps.semver_parser.outputs.patch }}"
+      - uses: actions-ecosystem/action-regex-match@v2
+        id: version
+        name: Prepare a version from a tag
+        with:
+          text: ${{ steps.tag_version.outputs.tag }}
+          regex: '^v([0-9]+)\.([0-9]+)\.([0-9]+)$'
+          flags: gm
+      - run: |
+          echo "MAJOR: steps.version.outputs.group1"
+          echo "MINOR: steps.version.outputs.group2"
+          echo "PATCH: steps.version.outputs.group3"
       - name: Download math result for job 2
         uses: actions/download-artifact@v3
       - name: Give permission
