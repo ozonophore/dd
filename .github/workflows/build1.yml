@@ -13,6 +13,10 @@ jobs:
     name: Display results
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: Get last
+        run: |
+          git -v
       - name: Download math result for job 2
         uses: actions/download-artifact@v3
       - name: Give permission
