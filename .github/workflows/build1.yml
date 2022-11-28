@@ -40,7 +40,9 @@ jobs:
       - if: ${{ steps.version.outputs.group3 == ''}}
         run: echo "BUILD_VERSION=v${{ steps.version.outputs.group1 }}.${{ steps.version.outputs.group2 }}.0" >> $GITHUB_ENV
       - if: ${{ steps.version.outputs.group3 != ''}}
-        run: echo "BUILD_VERSION=v${{ steps.version.outputs.group1 }}.${{ steps.version.outputs.group2 }}.${{ steps.version.outputs.group3 + 1 }}" >> $GITHUB_ENV
+        run: |
+          VERSION_PATCH=${{ steps.version.outputs.group3 }}
+          echo "BUILD_VERSION=v${{ steps.version.outputs.group1 }}.${{ steps.version.outputs.group2 }}.$($VERSION_PATCH+1)" >> $GITHUB_ENV
       - run: |
           echo "BUILD_VERSION: ${{ env.BUILD_VERSION }}"
       - name: Download math result for job 2
