@@ -21,7 +21,18 @@ jobs:
           repository: ozonophore/dd
           prefix: v
       - run: |
-           echo "Tag version: ${{ steps.tag_version.outputs.tag }}"          
+           echo "Tag version: ${{ steps.tag_version.outputs.tag }}"  
+      - name: Parse semver string
+        id: semver_parser 
+        uses: booxmedialtd/ws-action-parse-semver@v1
+        with:
+          input_string: ${{ steps.tag_version.outputs.tag }}
+          version_extractor_regex: '\/v(.*)$'
+      - name: Use parsed semver
+        run: |
+            echo "v${{ steps.semver_parser.outputs.major }}"
+            echo "v${{ steps.semver_parser.outputs.minor }}"
+            echo "v${{ steps.semver_parser.outputs.patch }}"
       - name: Download math result for job 2
         uses: actions/download-artifact@v3
       - name: Give permission
