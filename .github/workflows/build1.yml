@@ -27,7 +27,6 @@ jobs:
         uses: booxmedialtd/ws-action-parse-semver@v1
         with:
           input_string: '${{ steps.tag_version.outputs.tag }}'
-          version_extractor_regex: 'v(.*)$'
       - name: Use parsed semver
         run: |
             echo "v${{ steps.semver_parser.outputs.major }}"
