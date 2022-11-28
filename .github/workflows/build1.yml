@@ -14,9 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Get last
-        run: |
-          echo "TAGS: $(git branch)"
+      - name: Get the tag version
+        id: tag_version
+        uses: oprypin/find-latest-tag@v1
+        with:
+          repository: ozonophore/dd
+          releases-only: true
+      - run: |
+           echo "Tag version: ${{ steps.tag_version.outputs.tag }}"          
       - name: Download math result for job 2
         uses: actions/download-artifact@v3
       - name: Give permission
