@@ -19,7 +19,6 @@ jobs:
         uses: oprypin/find-latest-tag@v1
         with:
           repository: ozonophore/dd
-          releases-only: true
       - run: |
            echo "Tag version: ${{ steps.tag_version.outputs.tag }}"          
       - name: Download math result for job 2
