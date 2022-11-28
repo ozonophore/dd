@@ -19,7 +19,7 @@ jobs:
         uses: oprypin/find-latest-tag@v1
         with:
           repository: ozonophore/dd
-          prefix: v
+          regex: '^v([0-9]+)\..*'
       - run: |
            echo "Tag version: ${{ steps.tag_version.outputs.tag }}"  
       - uses: actions-ecosystem/action-regex-match@v2
