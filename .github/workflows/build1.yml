@@ -22,11 +22,6 @@ jobs:
           prefix: v
       - run: |
            echo "Tag version: ${{ steps.tag_version.outputs.tag }}"  
-      - name: Parse semver string
-        id: semver_parser 
-        uses: booxmedialtd/ws-action-parse-semver@v1
-        with:
-          input_string: '${{ steps.tag_version.outputs.tag }}'
       - uses: actions-ecosystem/action-regex-match@v2
         id: version
         name: Prepare a version from a tag
