@@ -15,6 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Call reusable workflow
-        uses: ./.github/actions
+        uses: ./.github/actions/my-action
         with:
           value: TEST VALUE
