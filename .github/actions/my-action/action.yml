@@ -7,4 +7,4 @@ runs:
   steps:
     - shell: bash
       run: |
-        reusable actions value is ${{ inputs.value }}
+        echo "Reusable actions value is ${{ inputs.value }}"
