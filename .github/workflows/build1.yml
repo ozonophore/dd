@@ -15,6 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: REUSABLE_ACTION
-        uses: ozonophore/test/actions/my-action
+        uses: ozonophore/dd/.github/actions/my-action
         with:
           value: TEST VALUE
