@@ -1,0 +1,14 @@
+name: Reusable workflow
+
+on:
+  workflow_call:
+    inputs:
+      value:
+        type: string
+
+jobs:
+  reusable_job:
+    - name: Print the reusable value
+      shell: bash
+      run: |
+        reusable value is ${{ inputs.value }}
