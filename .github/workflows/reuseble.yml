@@ -8,7 +8,8 @@ on:
 
 jobs:
   reusable_job:
-    - name: Print the reusable value
-      shell: bash
-      run: |
-        reusable value is ${{ inputs.value }}
+    steps:
+      - name: Print the reusable value
+        shell: bash
+        run: |
+          reusable value is ${{ inputs.value }}
