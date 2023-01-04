@@ -14,6 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call reusable workflow
-        uses: ./action
+        uses: ./actions
         with:
           value: TEST VALUE
