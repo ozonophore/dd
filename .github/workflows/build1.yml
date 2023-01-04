@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Call reusable workflow
+      - id: REUSABLE_ACTION
         uses: ./.github/actions/my-action
         with:
           value: TEST VALUE
