@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Print test
         run: echo $TEST_VALUE
+      - name: GITHUB_REPOSITORY
+        run: echo ${{ GITHUB_REPOSITORY }}
       - shell: bash
         name: Create a file
         run: |
